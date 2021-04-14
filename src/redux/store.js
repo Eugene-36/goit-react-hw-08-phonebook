@@ -1,7 +1,10 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import { reducer } from "./actions/index";
+import { authReducer } from "./auth";
 import {
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,7 +12,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-//import storage from "redux-persist/lib/storage";
+//console.log(authReducer);
+import storage from "redux-persist/lib/storage";
 const myMiddleware = (store) => (next) => (action) => {
   console.log("моя прослойка", action);
 
@@ -22,9 +26,9 @@ const myMiddleware = (store) => (next) => (action) => {
 
 const middleware = [
   ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
+    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    //
+    // },
   }),
   logger,
   myMiddleware,
@@ -34,12 +38,18 @@ const middleware = [
 //   storage,
 //   blacklist: ["filter"],
 // };
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
+};
 const store = configureStore({
   reducer: {
     allUsers: reducer,
+    auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware,
 });
 
-//const persistor = persistStore(store);
-export default store;
+const persistor = persistStore(store);
+export default { store, persistor };

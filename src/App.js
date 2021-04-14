@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import "./App.css";
 
 import { Switch, Route } from "react-router-dom";
@@ -8,12 +8,18 @@ import { Switch, Route } from "react-router-dom";
 // import ContactList from "./components/ContactList/ContactList";
 //? Новые импорты.
 import AppBar from "./components/AppBar";
-import TodosView from "./view/TodosVIew";
+import TodoViews from "./view/TodosVIew";
 import HomeView from "./view/HomeView";
 import RegisterView from "./view/RegisterView";
 import LoginView from "./view/LoginView";
 import Container from "./components/Container/Container";
+import { authOperations } from "./redux/auth";
+import { connect } from "react-redux";
+
 class App extends Component {
+  componentDidMount() {
+    this.props.onCurrentUser();
+  }
   render() {
     return (
       // <div className="App">
@@ -33,11 +39,19 @@ class App extends Component {
           <Route exact path="/" component={HomeView} />
           <Route path="/register" component={RegisterView} />
           <Route path="/login" component={LoginView} />
-          <Route path="/todos" component={TodosView} />
+          <Route path="/todos" component={TodoViews} />
         </Switch>
       </Container>
     );
   }
 }
 
-export default App;
+// const mapStateToProps = (state) => ({
+
+// })
+
+const mapDispatchToProps = {
+  onCurrentUser: authOperations.getCurrentUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);

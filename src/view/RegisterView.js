@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { authOperations } from "../redux/auth";
 class RegisterView extends Component {
   state = {
     name: "",
@@ -62,4 +64,9 @@ class RegisterView extends Component {
     );
   }
 }
-export default RegisterView;
+
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
+
+export default connect(null, mapDispatchToProps)(RegisterView);
