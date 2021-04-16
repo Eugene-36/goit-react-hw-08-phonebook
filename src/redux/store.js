@@ -27,6 +27,7 @@ const myMiddleware = (store) => (next) => (action) => {
 const middleware = [
   ...getDefaultMiddleware({
     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    serializableCheck: false,
     //
     // },
   }),
