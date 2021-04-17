@@ -1,6 +1,6 @@
 import axios from "axios";
 import authActions from "./auth-action";
-console.log(authActions);
+
 axios.defaults.baseURL = "https://goit-phonebook-api.herokuapp.com";
 
 const token = {
