@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/view/HomeView.module.css"],"names":[],"mappings":"AAAA,uBACE,iBAAkB,CAClB,UACF","file":"4.7ecaccb9.chunk.css","sourcesContent":[".centr {\r\n  text-align: center;\r\n  color: white;\r\n}\r\n"]}
