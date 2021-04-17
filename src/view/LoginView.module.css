@@ -7,6 +7,7 @@
 .st {
   border: 2px solid red;
   border-radius: 4px;
+  width: 250px;
 }
 .st:focus {
   border: 3px solid #555;
@@ -20,4 +21,17 @@
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+.head {
+  text-align: center;
+  color: white;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.centered {
+  display: flex;
+  justify-content: center;
 }

@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.position {
+  display: inline-flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  flex-direction: column;
+  text-align: center;
+  color: red;
+}

@@ -11,9 +11,16 @@ button {
   border: none;
 }
 input {
-  display: block;
-  margin: 0 0 15px 0;
+  /* display: block; */
+  /* margin: 0 0 15px 0; */
   padding: 10px;
+  margin-bottom: 10px;
   width: 250px;
   border: 1px solid #ccc;
+}
+.fr {
+  margin-top: 100px;
+  display: inline-block;
+  flex-direction: column;
+  text-align: center;
 }

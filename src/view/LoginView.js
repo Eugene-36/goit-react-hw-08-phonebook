@@ -25,11 +25,10 @@ class LoginView extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
-        <h1>Страница логина</h1>
-
+      <div className={s.centered}>
         <form onSubmit={this.handleSubmit} autoComplete="off" className={s.fr}>
-          <label>
+          <h1 className={s.head}>Страница логина</h1>
+          <label className={s.label}>
             Почта
             <input
               className={s.st}
@@ -40,7 +39,7 @@ class LoginView extends Component {
             />
           </label>
 
-          <label>
+          <label className={s.label}>
             Пароль
             <input
               className={s.st}

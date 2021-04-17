@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import { changeFilter } from "../../redux/actions/index";
 import { connect } from "react-redux";
 import getFilterSelctors from "../../redux/actions/contacts-selectors";
-
+import s from "./Filter.module.css";
 const Filter = ({ value, onChange }) => {
   return (
-    <div>
-      <label>
+    <div className={s.container}>
+      <label className={s.position}>
         Find contacts by name
         <input
           type="text"

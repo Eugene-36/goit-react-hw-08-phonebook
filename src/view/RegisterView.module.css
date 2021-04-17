@@ -1,9 +1,7 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background-image: url(../components/img/121212.jpg);
-}
+
 .postcard {
   max-width: 350px;
   margin: 50px auto 0;
