@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { authOperations } from "../redux/auth";
+import s from "./LoginView.module.css";
 console.log(authOperations);
 class LoginView extends Component {
   state = {
@@ -27,10 +28,11 @@ class LoginView extends Component {
       <div>
         <h1>Страница логина</h1>
 
-        <form onSubmit={this.handleSubmit} autoComplete="off">
+        <form onSubmit={this.handleSubmit} autoComplete="off" className={s.fr}>
           <label>
             Почта
             <input
+              className={s.st}
               type="email"
               name="email"
               value={email}
@@ -41,6 +43,7 @@ class LoginView extends Component {
           <label>
             Пароль
             <input
+              className={s.st}
               type="password"
               name="password"
               value={password}
@@ -48,7 +51,9 @@ class LoginView extends Component {
             />
           </label>
 
-          <button type="submit">Войти</button>
+          <button className={s.bt} type="submit">
+            Войти
+          </button>
         </form>
       </div>
     );

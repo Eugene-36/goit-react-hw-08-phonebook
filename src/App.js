@@ -2,10 +2,7 @@ import React, { Component, Suspense, lazy } from "react";
 import "./App.css";
 
 import { Switch } from "react-router-dom";
-// todos: импорты из моей старой книги
-// import Form from "./components/Form/Form";
-// import Filter from "./components/Filter/Filter";
-// import ContactList from "./components/ContactList/ContactList";
+
 //? Новые импорты.
 import AppBar from "./components/AppBar";
 import Container from "./components/Container/Container";
@@ -24,16 +21,6 @@ class App extends Component {
   }
   render() {
     return (
-      // <div className="App">
-      //   <div>
-      //     <h1>Phonebook</h1>
-      //     <Form />
-      //     <h2>Contacts</h2>
-      //     <Filter />
-      //     <ContactList />
-      //   </div>
-      // </div>
-
       <Container>
         <AppBar />
         <Suspense fallback={<p>Загружаем...</p>}>
@@ -56,7 +43,6 @@ class App extends Component {
               redirectTo="/login"
               component={TodoViews}
             />
-            {/* <Route path="/todos" component={TodoViews} /> */}
           </Switch>
         </Suspense>
       </Container>
